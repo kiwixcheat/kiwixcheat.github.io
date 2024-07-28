@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Congratulations</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background-color: rgb(24, 24, 24);
+            font-family: Arial, sans-serif;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+        .container {
+            background-color: rgb(16, 16, 16);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        h1 {
+            color: #4CAF50;
+            margin: 0;
+        }
+        p {
+            font-size: 1.5em;
+            margin: 10px 0;
+        }
+        .key {
+            font-weight: bold;
+            color: #FF5722;
+        }
+        .support {
+            font-size: 1.2em;
+            color: #ffeb3b;
+            margin-top: 20px;
+        }
+        .particle {
+            position: absolute;
+            background-color: white;
+            border-radius: 50%;
+            opacity: 0.8;
+            animation: fall linear infinite;
+        }
+        @keyframes fall {
+            to {
+                transform: translateY(100vh);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Congratulations</h1>
+        <p>You got a premium key:</p>
+        <p class="key">303c2bdf48da4540ab609ef79d1ae2d6</p>
+        <p class="support">For support, open a ticket on Discord</p>
+    </div>
+    <script>
+        function createParticle() {
+            const particle = document.createElement('div');
+            particle.classList.add('particle');
+            document.body.appendChild(particle);
+            particle.style.width = `${Math.random() * 10 + 5}px`;
+            particle.style.height = particle.style.width;
+            particle.style.left = `${Math.random() * 100}vw`;
+            particle.style.top = `-${Math.random() * 20}px`;
+            particle.style.animationDuration = `${Math.random() * 3 + 2}s`;
+
+            particle.addEventListener('animationend', () => {
+                particle.remove();
+            });
+        }
+
+        setInterval(createParticle, 100);
+    </script>
+</body>
+</html>
